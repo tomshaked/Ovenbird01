@@ -1,0 +1,11 @@
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\bin\Debug\net48\NatNetLib.dll
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\bin\Debug\net48\Ovenbird01.gha
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\bin\Debug\net48\Ovenbird01.pdb
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\bin\Debug\net48\NatNetML.dll
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\bin\Debug\net48\NatNetML.xml
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.AssemblyInfoInputs.cache
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.AssemblyInfo.cs
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.csproj.CoreCompileInputs.cache
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.csproj.CopyComplete
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.gha
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.pdb
