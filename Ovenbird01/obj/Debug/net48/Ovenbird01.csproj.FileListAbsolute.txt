@@ -9,3 +9,6 @@ C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.cspro
 C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.csproj.CopyComplete
 C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.gha
 C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.pdb
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.csproj.AssemblyReference.cache
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.Properties.Resources.resources
+C:\Users\Tom\source\repos\Ovenbird01\Ovenbird01\obj\Debug\net48\Ovenbird01.csproj.GenerateResource.cache

@@ -114,7 +114,15 @@ namespace Ovenbird01
             mAssetChanged = false;
         }
 
-        protected override System.Drawing.Bitmap Icon => null;
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                // You can add image files to your project resources and access them like this:
+                //return Resources.IconForThisComponent;
+                return Properties.Resources.rigidbody;
+            }
+        }
 
         public override Guid ComponentGuid => new Guid("8D4B7B98-77C6-4D8B-9CB1-AA364A938CCE");
     }
