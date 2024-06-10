@@ -1,129 +1,115 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 using Grasshopper.Kernel;
-using NatNetML;
-using Rhino.Geometry;
 
-namespace Ovenbird01
+namespace Ovenbird
 {
-    public class TrackerComponent : GH_Component
+    public class UDPListenerComponent : GH_Component
     {
-        // NatNet client and data structures
-        private static NatNetClientML mNatNet;
-        private static string mStrLocalIP = "127.0.0.1";   // Local IP address
-        private static string mStrServerIP = "127.0.0.1";  // Server IP address
-        private static ConnectionType mConnectionType = ConnectionType.Multicast;
-        private static List<RigidBody> mRigidBodies = new List<RigidBody>();
-        private static bool mAssetChanged = false;
-        private static List<Point3d> rbPositions = new List<Point3d>();
-        private static bool dataReceived = false;
+        private UdpClient udpClient;
+        private Thread listenerThread;
+        private string latestData;
+        private List<string> statusLog;
+        private bool isListening;
 
-        public TrackerComponent()
-          : base("Ovenbird01", "Tracker",
-            "Motive frame data broadcast",
-            "Ovenbird", "OptiTrack")
+        public UDPListenerComponent()
+          : base("UDPListener", "UDP Listener",
+              "Listens for UDP messages",
+              "Ovenbird", "Communication")
         {
-            InitializeNatNet();
+            statusLog = new List<string>();
+            latestData = string.Empty;
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            // Register any input parameters if needed
+            pManager.AddBooleanParameter("Activate", "Activate", "Activate the UDP listener.", GH_ParamAccess.item, false);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddPointParameter("RigidBody Positions", "RBPos", "Positions of tracked rigid bodies", GH_ParamAccess.list);
-            pManager.AddTextParameter("Status", "Status", "Connection status", GH_ParamAccess.item);
+            pManager.AddTextParameter("Status", "Status", "Status of the UDP listener.", GH_ParamAccess.list);
+            pManager.AddTextParameter("Data", "Data", "Latest UDP data", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            if (mNatNet == null || mAssetChanged)
+            bool activate = false;
+            if (!DA.GetData(0, ref activate)) return;
+
+            if (activate && !isListening)
             {
-                ConnectToServer(mStrServerIP, mStrLocalIP, mConnectionType);
-                FetchDataDescriptor();
+                StartListening();
+            }
+            else if (!activate && isListening)
+            {
+                StopListening();
             }
 
-            if (dataReceived)
-            {
-                DA.SetDataList(0, rbPositions);
-                DA.SetData(1, "Connected to server");
-                dataReceived = false;
-            }
-            else
-            {
-                DA.SetDataList(0, new List<Point3d>());
-                DA.SetData(1, "No data received");
-            }
+            DA.SetDataList(0, statusLog);
+            DA.SetData(1, latestData);
         }
 
-        private void InitializeNatNet()
+        private void StartListening()
         {
-            mNatNet = new NatNetClientML();
-            mNatNet.OnFrameReady += FetchFrameData;
+            statusLog.Clear();
+            statusLog.Add("Starting UDP listener...");
+
+            udpClient = new UdpClient(1511);
+            isListening = true;
+
+            listenerThread = new Thread(new ThreadStart(ListenForData));
+            listenerThread.IsBackground = true;
+            listenerThread.Start();
+
+            statusLog.Add("UDP listener started.");
         }
 
-        private void ConnectToServer(string serverIPAddress, string localIPAddress, ConnectionType connectionType)
+        private void StopListening()
         {
-            NatNetClientML.ConnectParams connectParams = new NatNetClientML.ConnectParams
-            {
-                ConnectionType = connectionType,
-                ServerAddress = serverIPAddress,
-                LocalAddress = localIPAddress
-            };
+            statusLog.Add("Stopping UDP listener...");
 
-            mNatNet.Connect(connectParams);
+            isListening = false;
+            udpClient.Close();
+            listenerThread.Join();
+
+            statusLog.Add("UDP listener stopped.");
         }
 
-        private void FetchFrameData(FrameOfMocapData data, NatNetClientML client)
+        private void ListenForData()
         {
-            if (data.bTrackingModelsChanged || data.nRigidBodies != mRigidBodies.Count)
-            {
-                mAssetChanged = true;
-            }
+            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 1511);
 
-            rbPositions.Clear();
-            foreach (var rb in mRigidBodies)
+            try
             {
-                foreach (var rbData in data.RigidBodies)
+                while (isListening)
                 {
-                    if (rb.ID == rbData.ID && rbData.Tracked)
+                    byte[] receiveBytes = udpClient.Receive(ref remoteEndPoint);
+                    string receiveString = Encoding.ASCII.GetString(receiveBytes);
+
+                    lock (latestData)
                     {
-                        rbPositions.Add(new Point3d(rbData.x, rbData.y, rbData.z));
+                        latestData = receiveString;
                     }
+
+                    Rhino.RhinoApp.InvokeOnUiThread((Action)delegate
+                    {
+                        ExpireSolution(true);
+                    });
                 }
             }
-            dataReceived = true;
-        }
-
-        private void FetchDataDescriptor()
-        {
-            List<DataDescriptor> dataDescriptors;
-            mNatNet.GetDataDescriptions(out dataDescriptors);
-
-            foreach (var descriptor in dataDescriptors)
+            catch (Exception ex)
             {
-                if (descriptor.type == (int)DataDescriptorType.eRigidbodyData)
-                {
-                    mRigidBodies.Add((RigidBody)descriptor);
-                }
-            }
-
-            mAssetChanged = false;
-        }
-
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                // You can add image files to your project resources and access them like this:
-                //return Resources.IconForThisComponent;
-                return Properties.Resources.rigidbody;
+                statusLog.Add("Error: " + ex.Message);
             }
         }
 
-        public override Guid ComponentGuid => new Guid("8D4B7B98-77C6-4D8B-9CB1-AA364A938CCE");
+        protected override System.Drawing.Bitmap Icon => null;
+
+        public override Guid ComponentGuid => new Guid("F8A1F091-4A84-4D5C-B3E4-2C8B5A9BDA1E");
     }
 }
