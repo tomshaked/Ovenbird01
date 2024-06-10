@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Description of Ovenbird01")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+02e19050bec4501ce5f1be76b18975fae11fd940")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ovenbird01")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ovenbird01")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

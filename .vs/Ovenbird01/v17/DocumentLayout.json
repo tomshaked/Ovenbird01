@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9EF9ED0B-1B0B-4F6D-9984-7A604EB91312}|Ovenbird01\\Ovenbird01.csproj|c:\\users\\user\\source\\repos\\ovenbird01\\ovenbird01\\trackercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EF9ED0B-1B0B-4F6D-9984-7A604EB91312}|Ovenbird01\\Ovenbird01.csproj|solutionrelative:ovenbird01\\trackercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrackerComponent.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\TrackerComponent.cs",
+              "RelativeDocumentMoniker": "Ovenbird01\\TrackerComponent.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\TrackerComponent.cs",
+              "RelativeToolTip": "Ovenbird01\\TrackerComponent.cs",
+              "ViewState": "AQIAAHYAAAAAAAAAAAA+wJUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T08:16:12.122Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gMHX55P996HVYC71qYGTqqJ0ICHXz8EWOjsw8wFNXecuvBl8Em1h/+FiHw3ItkE4cLXSgBF5mAsMANFY+2k5Zw==",
+  "dgSpecHash": "2zJnQCiDEyk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tom\\.nuget\\packages\\grasshopper\\7.13.21348.13001\\grasshopper.7.13.21348.13001.nupkg.sha512",
-    "C:\\Users\\Tom\\.nuget\\packages\\rhinocommon\\7.13.21348.13001\\rhinocommon.7.13.21348.13001.nupkg.sha512"
+    "C:\\Users\\USER\\.nuget\\packages\\grasshopper\\7.13.21348.13001\\grasshopper.7.13.21348.13001.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\rhinocommon\\7.13.21348.13001\\rhinocommon.7.13.21348.13001.nupkg.sha512"
   ],
   "logs": []
 }
