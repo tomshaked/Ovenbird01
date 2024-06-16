@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj": {}
+    "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj": {
+    "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
         "projectName": "Ovenbird01",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\Ovenbird01\\Ovenbird01\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\Ovenbird01.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\source\\repos\\Ovenbird01\\Ovenbird01\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -51,7 +46,7 @@
               "version": "[7.13.21348.13001, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
